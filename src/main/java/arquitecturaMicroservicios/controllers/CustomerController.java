@@ -55,7 +55,17 @@ public class CustomerController {
         return null; // This is a bad practice do NOT replicate!!
     }
 
+    @DeleteMapping("/customers/{id}")
+    public Customer deleteCustomer(@PathVariable int id) {
+        for (Customer c : customers) {
+            if (c.getID() == id) {
+                customers.remove(c);
 
+                return c;
+            }
+        }
+        return null;
+    }
 
 
 
