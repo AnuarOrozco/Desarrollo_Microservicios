@@ -76,7 +76,7 @@ public class CustomerController {
 
     @RequestMapping(method = RequestMethod.PATCH)
     //@PatchMapping
-    public Customer patchCustomer(@RequestBody Customer customer) {
+    public ResponseEntity<?> patchCustomer(@RequestBody Customer customer) {
         for (Customer c : customers) {
 
             if (c.getID() == customer.getID()) {
@@ -90,9 +90,9 @@ public class CustomerController {
                     c.setPassword(customer.getPassword());
                 }
             }
-            return c;
+            return ResponseEntity.ok("Customer was succesfully modified: " + customer.getUsername());
         }
-        return null;
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Customer not found: " + customer.getID());
     }
 
 
