@@ -90,7 +90,7 @@ public class CustomerController {
                     c.setPassword(customer.getPassword());
                 }
             }
-            return ResponseEntity.ok("Customer was succesfully modified: " + customer.getUsername());
+            return ResponseEntity.ok("Customer was succesfully modified: " + customer.getID());
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Customer not found: " + customer.getID());
     }
