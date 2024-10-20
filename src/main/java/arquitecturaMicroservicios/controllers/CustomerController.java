@@ -40,9 +40,10 @@ public class CustomerController {
 
     @RequestMapping(method = RequestMethod.POST)
     //@PostMapping
-    public Customer postCustomer(@RequestBody Customer customer) {
+    public ResponseEntity<?> postCustomer(@RequestBody Customer customer) {
         customers.add(customer);
-        return customer;
+
+        return ResponseEntity.status(HttpStatus.CREATED).body("Customer was succesfully created: " + customer.getUsername());
     }
 
     @RequestMapping(method = RequestMethod.POST)
