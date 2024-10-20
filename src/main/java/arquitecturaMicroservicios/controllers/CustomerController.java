@@ -55,23 +55,23 @@ public class CustomerController {
                 c.setUsername(customer.getUsername());
                 c.setPassword(customer.getPassword());
 
-                return ResponseEntity.ok("Customer was succesfully modified: " + customer.getUsername());
+                return ResponseEntity.ok("Customer was succesfully modified: " + customer.getID());
             }
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Customer not found: " + customer.getUsername());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Customer not found: " + customer.getID());
     }
 
     @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
     //@DeleteMapping("/{id}")
-    public Customer deleteCustomer(@PathVariable int id) {
+    public ResponseEntity<?> deleteCustomer(@PathVariable int id) {
         for (Customer c : customers) {
             if (c.getID() == id) {
                 customers.remove(c);
 
-                return c;
+                return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Customer was succesfully deleted: " + id);
             }
         }
-        return null;
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Customer not found: " + id);
     }
 
     @RequestMapping(method = RequestMethod.PATCH)
