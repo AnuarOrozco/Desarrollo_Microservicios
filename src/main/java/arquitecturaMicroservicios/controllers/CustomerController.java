@@ -48,17 +48,17 @@ public class CustomerController {
 
     @RequestMapping(method = RequestMethod.POST)
     //@PutMapping
-    public Customer putCustomer(@RequestBody Customer customer) {
+    public ResponseEntity<?> putCustomer(@RequestBody Customer customer) {
         for (Customer c : customers) {
             if (c.getID() == customer.getID()) {
                 c.setName(customer.getName());
                 c.setUsername(customer.getUsername());
                 c.setPassword(customer.getPassword());
 
-                return c;
+                return ResponseEntity.ok("Customer was succesfully modified: " + customer.getUsername());
             }
         }
-        return null; // This is a bad practice do NOT replicate!!
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Customer not found: " + customer.getUsername());
     }
 
     @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
