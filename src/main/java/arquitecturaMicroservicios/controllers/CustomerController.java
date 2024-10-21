@@ -53,7 +53,7 @@ public class CustomerController {
                 .buildAndExpand(customer.getUsername())
                 .toUri();
 
-        return ResponseEntity.created(location).build();
+        return ResponseEntity.created(location).body(customer);
     }
 
     @RequestMapping(method = RequestMethod.POST)
