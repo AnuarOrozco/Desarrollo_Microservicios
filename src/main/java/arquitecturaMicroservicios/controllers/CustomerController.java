@@ -55,10 +55,10 @@ public class CustomerController {
                 c.setUsername(customer.getUsername());
                 c.setPassword(customer.getPassword());
 
-                return ResponseEntity.ok("Customer was succesfully modified: " + customer.getID());
+                return ResponseEntity.noContent().build();
             }
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Customer not found: " + customer.getID());
+        return ResponseEntity.notFound().build();
     }
 
     @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
@@ -68,10 +68,10 @@ public class CustomerController {
             if (c.getID() == id) {
                 customers.remove(c);
 
-                return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Customer was succesfully deleted: " + id);
+                return ResponseEntity.noContent().build();
             }
         }
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Customer not found: " + id);
+        return ResponseEntity.notFound().build();
     }
 
     @RequestMapping(method = RequestMethod.PATCH)
