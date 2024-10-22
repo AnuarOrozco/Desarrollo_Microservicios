@@ -14,8 +14,6 @@ import java.util.List;
 @RequestMapping("/products")
 public class ProductController {
 
-    // Class instance
-    //ProductService productsService = new ProductsServiceImpl();
     @Autowired
     private ProductService productsService;
 
