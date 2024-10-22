@@ -56,7 +56,7 @@ public class CustomerController {
         return ResponseEntity.created(location).body(customer);
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.PUT)
     //@PutMapping
     public ResponseEntity<?> putCustomer(@RequestBody Customer customer) {
         for (Customer c : customers) {

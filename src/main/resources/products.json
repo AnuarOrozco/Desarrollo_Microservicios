@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Gaming Monitor 144hz",
+    "price": 349.69,
+    "stock": 12
+  },
+  {
+    "id": 2,
+    "name": "Airpods Pro",
+    "price": 249.79,
+    "stock": 48
+  },
+  {
+    "id": 3,
+    "name": "Gaming Keyboard 65%",
+    "price": 125.69,
+    "stock": 6
+  },
+  {
+    "id": 4,
+    "name": "SSD M.2 Nvme 500GB",
+    "price": 45.99,
+    "stock": 12
+  }
+]
